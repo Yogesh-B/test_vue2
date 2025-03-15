@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>testing vue2 for revision</title>
+</head>
+
+<body>
+
+    <div id="app">
+        {{todos}}
+        <todo-item v-for="el in todos" v-bind:todo="el"></todo-item>
+    </div>
+
+
+
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <script>
+        Vue.component('todo-item',{
+            props:['todo'],
+            template:`
+                <li>{{todo}}</li>
+            `,
+        });
+
+
+
+        var app = new Vue({
+            el: '#app',
+            data: {
+                todos: ["buy subji","buy fruits"],
+            },
+            methods: {
+                
+            }
+        })
+
+    </script>
+</body>
+
+</html>

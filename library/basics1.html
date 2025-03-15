@@ -9,7 +9,7 @@
 
 <body>
 
-    <div id="app" >
+    <div id="app">
         {{ message }}
         <br><br><br><br>
         <span v-bind:title="title_message">
@@ -18,18 +18,23 @@
         </span>
         <br><br><br><br>
         <span v-if="seen">Now you see me</span>
-        
+
         <br><br><br><br>
         <li v-for="item in looper">
             {{ item }}
         </li>
-        
+
         <br><br><br><br>
-        <button v-on:click="reverseString">Reverse String</button>
+        <button v-on:click="reverseString">Reverse Hello Message</button>
+
+
+        <br><br><br><br>
+        <p>{{ message6 }}</p>
+        <input v-model="message6">
 
     </div>
 
-    
+
 
 
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
@@ -40,14 +45,14 @@
             el: '#app',
             data: {
                 message: 'Hello Vue!',
-                title_message: `You loaded this page on ${ new Date().toLocaleString()}`,
-                looper: ["I","me","us","our"],
+                title_message: `You loaded this page on ${new Date().toLocaleString()}`,
+                looper: ["I", "me", "us", "our"],
                 seen: true,
+                message6: "That is V-MODELed",
             },
-            methods:{
-                reverseString: ()=>{
-                    // this.message = this.message+'13545'//.split('').reverse().join('');
-                    console.log(this.message);
+            methods: {
+                reverseString: function () {
+                    this.message = this.message.split('').reverse().join('');
                 }
             }
         })
